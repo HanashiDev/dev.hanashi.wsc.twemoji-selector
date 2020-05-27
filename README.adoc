@@ -17,10 +17,10 @@ It is very easy to implement this extension. First add the following `requiredpa
 [.float-group]
 --
 [.left]
-image::doc/selector_light.png[]
+image::doc/selector_light.png[float="left"]
 
 [.left]
-image::doc/selector_dark.png[]
+image::doc/selector_dark.png[float="left"]
 --
 
 Implement the following JavaScript Code into your template or JavaScript file:
