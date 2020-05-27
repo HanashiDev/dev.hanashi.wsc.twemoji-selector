@@ -1,5 +1,5 @@
 = Twemoji Selector for WSC
-Twemoji selector for WoltLab Suite Core (3.0+) is a developer extension. Developers can simple add this plugin to there extension and trigger the selector.
+Twemoji selector for WoltLab Suite Core (3.0+) is a developer extension. Developers can simple add this extension to there extension and trigger the selector.
 
 == Content
 This package contains a Twemoji selector and a simple Twemoji parser. The parser converts native emojis to Twemojis.
@@ -16,7 +16,7 @@ It is very easy to implement this extension. First add the following `requiredpa
 === Twemoji Selector
 image::doc/selector_light.png[]
 
-Implement the following JavaScript Code into your template or JavaScript file:
+Implement the following JavaScript code into your template or JavaScript file:
 [source,javascript]
 ----
 require(["js/Hanashi/Twemoji/Selector"], function(TwemojiSelector) {
@@ -29,7 +29,7 @@ require(["js/Hanashi/Twemoji/Selector"], function(TwemojiSelector) {
 });
 ----
 
-Now add following in your Template:
+Now add following in your template file:
 [source,html]
 ----
 <twemoji-selector></twemoji-selector>
@@ -46,7 +46,7 @@ You have the following options:
 |function
 |true
 |`null`
-|Specify a callback function, that is triggerd, if a user clicks on a emoji. You receive an emoji object as parameter.
+|Specify a callback function, that is triggered, if a user clicks on a emoji. You receive an emoji object as parameter.
 
 |selector
 |string
@@ -58,7 +58,7 @@ You have the following options:
 |string
 |false
 |`WCF_PATH + 'js/Hanashi/Twemoji/twemoji.json'`
-|The data path to the twemoji json data file.
+|The data path to the Twemoji json data file.
 
 |theme
 |string
@@ -66,7 +66,7 @@ You have the following options:
 |`auto`
 |You can select a theme for the selector.
 
-`auto`: the selector has theme dark or light, depence on system setting of the user.
+`auto`: the Twemoji selector has theme dark or light, depence on system setting of the user.
 
 `light`: a simple light theme
 
@@ -74,7 +74,7 @@ You have the following options:
 |===
 
 === Twemoji Parser
-The twemoji parser search in a selector for native emojis and replace that with a twemoji.
+The Twemoji parser is searching in a selector for native emojis and replace that with a Twemoji.
 
 Implement the following JavaScript Code into your template or JavaScript file:
 [source,javascript]
@@ -97,17 +97,17 @@ You have the following options:
 |string
 |true
 |`null`
-|This option defines the selector, where emojis should be converted. Don't use elements, where JavaScripts-Events are defined.
+|This option defines the selector, where emojis should be converted. Don't use elements, where JavaScripts events are defined.
 
 |dataPath
 |string
 |false
 |`WCF_PATH + 'js/Hanashi/Twemoji/twemoji.json'`
-|The data path to the twemoji json data file.
+|The data path to the Twemoji json data file.
 
 |size
 |integer
 |false
 |`24`
-|This specify the size of the generated image. Allowed sizes are: `18`, `22`, `24`, `34` and `66`.
+|This specify the size of the generated images. Allowed sizes are: `18`, `22`, `24`, `34` and `66`.
 |===
