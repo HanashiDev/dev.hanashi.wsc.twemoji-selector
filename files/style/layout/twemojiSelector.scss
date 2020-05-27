@@ -1,0 +1,262 @@
+.twemojiSelector {
+    width: 302px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    background: #fff;
+    display: inline-block;
+    color: #000;
+    @media (prefers-color-scheme: dark) {
+        background: #222;
+        color: #FFF;
+    }
+
+    .navSection {
+        border-bottom: 1px solid #d9d9d9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        @media (prefers-color-scheme: dark) {
+            border-color: #555453;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 6px;
+
+            button {
+                display: block;
+                flex: 1 1 auto;
+                color: #858585;
+                text-align: center;
+                padding: 13px 4px;
+                overflow: hidden;
+                transition: color 0.2s ease-out;
+                margin: 0;
+                box-shadow: none;
+                background: none;
+                border: none;
+
+                &.active {
+                    color: rgb(174, 101, 197);
+                    border-bottom: 3px solid rgb(174, 101, 197);
+                }
+
+                &.active:hover {
+                    color: #FFFFFF;
+                    box-shadow: none;
+                    background: #858585;
+                    border: none;
+                }
+
+                span {
+                    cursor: pointer !important;
+                }
+            }
+        }
+    }
+
+    .searchSection {
+        margin-top: 6px;
+        padding: 0 6px;
+        position: relative;
+
+        input[type=search] {
+            width: 100%;
+        }
+    }
+
+    .emojiSection {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 270px;
+        padding: 0 6px 6px 6px;
+        will-change: transform;
+
+        section {
+            box-sizing: border-box;
+            line-height: 1.15;
+
+            .sectionTitle {
+                position: sticky;
+                top: 0;
+
+                span {
+                    display: block;
+                    width: 100%;
+                    font-size: 14px;
+                    font-weight: bold;
+                    padding: 5px 6px;
+                    background-color: #FFF;
+                    color: #000;
+
+                    @media (prefers-color-scheme: dark) {
+                        background-color: #222;
+                        color: #FFF
+                    }
+                }
+            }
+            .emojiList {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+
+                    button {
+                        background: none;
+                        border: none;
+                        box-shadow: none;
+                        margin: 0;
+                        padding: 6px;
+
+                        span {
+                            width: 24px;
+                            height: 24px;
+                            display: inline-block;
+                            background-image: url('../images/twemoji/sheets/66.png');
+                            background-size: 5200% 5200%;
+                        }
+
+                        &:hover {
+                            background: #d9d9d9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .previewSection {
+        border-top: 1px solid #d9d9d9;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        @media (prefers-color-scheme: dark) {
+            border-color: #555453;
+        }
+
+        .previewContent {
+            position: relative;
+            height: 70px;
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            span.twemojiPreview {
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                background-image: url('../images/twemoji/sheets/66.png');
+                background-size: 5200% 5200%;
+                flex: 0 0 auto;
+            }
+
+            div.previewDescription {
+                margin-left: 10px;
+
+                .twemojiTitle {
+                    font-weight: bold;
+                }
+                .twemojiAlias {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &.dark {
+        background-color: #222;
+        color: #fff;
+        border-color: #555453;
+
+        .navSection {
+            border-color: #555453;
+        }
+
+        .emojiSection {
+            section {
+                .sectionTitle {
+                    span {
+                        color: #fff;
+                        background-color: #222;
+                    }
+                }
+            }
+        }
+
+        .previewSection {
+            border-color: #555453;
+        }
+    }
+
+    &.light {
+        background-color: #fff;
+        color: #000;
+        border-color: #d9d9d9;
+
+        .navSection {
+            border-color: #d9d9d9;
+        }
+
+        .emojiSection {
+            section {
+                .sectionTitle {
+                    span {
+                        color: #000;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+
+        .previewSection {
+            border-color: #d9d9d9;
+        }
+    }
+}
+
+.haTwemojiIcon18 {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/18.png');
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon22 {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/22.png');
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon24 {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/66.png');
+    background-size: 5200% 5200%;
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon34 {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/34.png');
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon66 {
+    width: 66px;
+    height: 66px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/66.png');
+    vertical-align: bottom;
+}
