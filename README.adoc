@@ -1,5 +1,8 @@
 = Twemoji Selector for WSC
+
 Twemoji selector for WoltLab Suite Core (3.0+) is a developer extension. Developers can simple add this extension to there extension and trigger the selector.
+
+Images are copyright by Missive.
 
 == Content
 This package contains a Twemoji selector and a simple Twemoji parser. The parser converts native emojis to Twemojis.
