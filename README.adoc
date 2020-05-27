@@ -14,10 +14,7 @@ It is very easy to implement this extension. First add the following `requiredpa
 ----
 
 === Twemoji Selector
-[.float-group]
---
 image::doc/selector_light.png[]
---
 
 Implement the following JavaScript Code into your template or JavaScript file:
 [source,javascript]
