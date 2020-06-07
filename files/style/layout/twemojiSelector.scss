@@ -220,11 +220,21 @@
     }
 }
 
+.haTwemojiIcon16 {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
+    vertical-align: bottom;
+}
+
 .haTwemojiIcon18 {
     width: 18px;
     height: 18px;
     display: inline-block;
-    background-image: url('../images/twemoji/sheets/18.png');
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
     vertical-align: bottom;
 }
 
@@ -232,7 +242,8 @@
     width: 22px;
     height: 22px;
     display: inline-block;
-    background-image: url('../images/twemoji/sheets/22.png');
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
     vertical-align: bottom;
 }
 
@@ -240,7 +251,16 @@
     width: 24px;
     height: 24px;
     display: inline-block;
-    background-image: url('../images/twemoji/sheets/66.png');
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon32 {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
     background-size: 5200% 5200%;
     vertical-align: bottom;
 }
@@ -249,7 +269,17 @@
     width: 34px;
     height: 34px;
     display: inline-block;
-    background-image: url('../images/twemoji/sheets/34.png');
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
+    vertical-align: bottom;
+}
+
+.haTwemojiIcon64 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
     vertical-align: bottom;
 }
 
@@ -257,6 +287,7 @@
     width: 66px;
     height: 66px;
     display: inline-block;
-    background-image: url('../images/twemoji/sheets/66.png');
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: 5200% 5200%;
     vertical-align: bottom;
 }
