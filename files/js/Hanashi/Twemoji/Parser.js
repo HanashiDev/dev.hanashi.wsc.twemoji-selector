@@ -16,7 +16,12 @@ define(['./Util', './Data'], function(TwemojiUtil, TwemojiData) {
                 console.log('no selector configured');
             }
 
-            this._parse();
+            var data = TwemojiData.getTwemojiData();
+            this._emojis = null;
+            if (data.emo !== undefined && data.emo !== null) {
+                this._emojis = data.emo;
+            }
+            this.parse();
         },
 
         _initOptions: function(options) {
@@ -31,27 +36,28 @@ define(['./Util', './Data'], function(TwemojiUtil, TwemojiData) {
             }
         },
 
-        _parse: function() {
-            var data = TwemojiData.getTwemojiData();
-            var nodeList = elBySelAll(this._selector);
+        parse: function(selector = null) {
+            if (this._emojis === undefined || this._emojis === null) return;
 
-            if (data.emo !== undefined && data.emo !== null) {
-                var emojis = data.emo;
-                for (var emoji in emojis) {
-                    if (emojis[emoji] === undefined || emojis[emoji] === null) continue;
-                    
-                    var native = TwemojiUtil.getEmojiByUnifier(emojis[emoji].u);
-                    if (!native) continue;
+            if (selector === null) {
+                selector = this._selector;
+            }
 
-                    var coordinates = emojis[emoji].c;
-                    var x = coordinates[0] * (this._emojiSize * -1);
-                    var y = coordinates[1] * (this._emojiSize * -1);
-                    var icon = '<span class="haTwemojiIcon' + this._emojiSize + '" style="background-position: ' + x + 'px ' + y + 'px"></span>';
+            var nodeList = elBySelAll(selector);
+            for (var emoji in this._emojis) {
+                if (this._emojis[emoji] === undefined ||this._emojis[emoji] === null) continue;
+                
+                var native = TwemojiUtil.getEmojiByUnifier(this._emojis[emoji].u);
+                if (!native) continue;
 
-                    for (var i = 0; i < nodeList.length; i++) {
-                        if (nodeList[i].innerHTML.includes(native) > 0) {
-                            nodeList[i].innerHTML = nodeList[i].innerHTML.replace(native, icon);
-                        }
+                var coordinates = this._emojis[emoji].c;
+                var x = coordinates[0] * (this._emojiSize * -1);
+                var y = coordinates[1] * (this._emojiSize * -1);
+                var icon = '<span class="haTwemojiIcon' + this._emojiSize + '" style="background-position: ' + x + 'px ' + y + 'px"></span>';
+
+                for (var i = 0; i < nodeList.length; i++) {
+                    if (nodeList[i].innerHTML.includes(native) > 0) {
+                        nodeList[i].innerHTML = nodeList[i].innerHTML.replace(native, icon);
                     }
                 }
             }
