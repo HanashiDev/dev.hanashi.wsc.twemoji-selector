@@ -22,7 +22,7 @@ image::doc/selector_light.png[]
 Implement the following JavaScript code into your template or JavaScript file:
 [source,javascript]
 ----
-require(["js/Hanashi/Twemoji/Selector"], function(TwemojiSelector) {
+require(["Hanashi/Twemoji/Selector"], function(TwemojiSelector) {
     var options = {
         callback: function(emoji) {
             console.log(emoji);
@@ -82,7 +82,7 @@ The Twemoji parser is searching in a selector for native emojis and replace that
 Implement the following JavaScript Code into your template or JavaScript file:
 [source,javascript]
 ----
-require(["js/Hanashi/Twemoji/Parser"], function(TwemojiParser) {
+require(["Hanashi/Twemoji/Parser"], function(TwemojiParser) {
     var options = {
         selector: '#myDiv'
     };
