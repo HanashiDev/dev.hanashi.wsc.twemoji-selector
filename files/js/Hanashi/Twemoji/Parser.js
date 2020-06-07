@@ -1,4 +1,4 @@
-define(['./Util'], function(TwemojiUtil) {
+define(['./Util', './Data'], function(TwemojiUtil, TwemojiData) {
     "use strict";
 
     function TwemojiParser(options = {}) {
@@ -16,7 +16,7 @@ define(['./Util'], function(TwemojiUtil) {
                 console.log('no selector configured');
             }
 
-            fetch(this._emojiDataPath).then(this._dataResponse.bind(this));
+            this._parse();
         },
 
         _initOptions: function(options) {
@@ -31,11 +31,8 @@ define(['./Util'], function(TwemojiUtil) {
             }
         },
 
-        _dataResponse: function(response) {
-            response.json().then(this._dataFetched.bind(this));
-        },
-
-        _dataFetched: function(data) {
+        _parse: function() {
+            var data = TwemojiData.getTwemojiData();
             var nodeList = elBySelAll(this._selector);
 
             if (data.emo !== undefined && data.emo !== null) {
