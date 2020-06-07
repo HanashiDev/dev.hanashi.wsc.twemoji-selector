@@ -1,4 +1,4 @@
-define(['./Util', 'Language'], function(TwemojiUtil, Language) {
+define(['./Util', './Data', 'Language'], function(TwemojiUtil, TwemojiData, Language) {
     "use strict";
 
     function TwemojiSelector(options = {}) {
@@ -30,8 +30,8 @@ define(['./Util', 'Language'], function(TwemojiUtil, Language) {
             // initialize options
             this._initOptions(options);
 
-            // start fetch twemoji data
-            fetch(this._emojiDataPath).then(this._dataResponse.bind(this));
+            // start generate selecotr
+            this._generateSelector();
         },
 
         _initOptions: function(options) {
@@ -66,11 +66,8 @@ define(['./Util', 'Language'], function(TwemojiUtil, Language) {
             }
         },
 
-        _dataResponse: function(response) {
-            response.json().then(this._dataFetched.bind(this));
-        },
-
-        _dataFetched: function(data) {
+        _generateSelector: function() {
+            var data = TwemojiData.getTwemojiData();
             if (data.cat !== undefined && data.cat !== null) {
                 this._emojiCategories = data.cat;
             }
