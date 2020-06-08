@@ -2,11 +2,11 @@
 <package name="dev.hanashi.wsc.twemoji-selector" xmlns="https://www.woltlab.com" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/2019/package.xsd">
 	<packageinformation>
 		<packagename><![CDATA[Twemoji Selector]]></packagename>
-		<packagename language="de"><![CDATA[Emoji Wähler]]></packagename>
+		<packagename language="de"><![CDATA[Twemoji Wähler]]></packagename>
 		<packagedescription><![CDATA[Easy Selector for Twemojis.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Einfacher Auswähler für Twemojis.]]></packagedescription>
-		<version>1.0.0</version>
-		<date>2020-05-27</date>
+		<version>1.1.0</version>
+		<date>2020-06-08</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -24,6 +24,9 @@
 
 	<instructions type="install">
 		<!-- files -->
+		<instruction type="file" />
+	</instructions>
+	<instructions type="update" fromversion="1.0.0">
 		<instruction type="file" />
 	</instructions>
 </package>
