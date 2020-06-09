@@ -162,7 +162,7 @@ define(['./Util', './Data', 'Language'], function(TwemojiUtil, TwemojiData, Lang
 
             if (this._emojiSections[categoryID] === undefined || this._emojiSections[categoryID] === null) return;
 
-            this._emojiSections[categoryID].scrollIntoView(true);
+            this._emojiSectionDiv.scrollTop = this._emojiSections[categoryID].offsetTop - this._emojiSectionDiv.offsetTop;
         },
 
         _changeSearchValue: function(e) {
