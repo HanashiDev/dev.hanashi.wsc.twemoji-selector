@@ -56,8 +56,8 @@ define(['./Util', './Data'], function(TwemojiUtil, TwemojiData) {
                 var icon = '<span class="haTwemojiIcon' + this._emojiSize + '" style="background-position: ' + x + 'px ' + y + 'px"></span>';
 
                 for (var i = 0; i < nodeList.length; i++) {
-                    if (nodeList[i].innerHTML.includes(native) > 0) {
-                        nodeList[i].innerHTML = nodeList[i].innerHTML.replace(native, icon);
+                    if (nodeList[i].innerHTML.includes(native)) {
+                        nodeList[i].innerHTML = nodeList[i].innerHTML.replace(new RegExp(native, 'g'), icon);
                     }
                 }
             }
