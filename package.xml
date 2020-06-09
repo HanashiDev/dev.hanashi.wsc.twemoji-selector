@@ -5,8 +5,8 @@
 		<packagename language="de"><![CDATA[Twemoji Wähler]]></packagename>
 		<packagedescription><![CDATA[Easy Selector for Twemojis.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Einfacher Auswähler für Twemojis.]]></packagedescription>
-		<version>1.1.0</version>
-		<date>2020-06-08</date>
+		<version>1.1.1</version>
+		<date>2020-06-09</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -26,7 +26,7 @@
 		<!-- files -->
 		<instruction type="file" />
 	</instructions>
-	<instructions type="update" fromversion="1.0.0">
+	<instructions type="update" fromversion="1.1.0">
 		<instruction type="file" />
 	</instructions>
 </package>
