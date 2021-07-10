@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="dev.hanashi.wsc.twemoji-selector" xmlns="https://www.woltlab.com" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/2019/package.xsd">
+<package name="dev.hanashi.wsc.twemoji-selector" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd">
 	<packageinformation>
 		<packagename><![CDATA[Twemoji Selector]]></packagename>
 		<packagename language="de"><![CDATA[Twemoji Wähler]]></packagename>
 		<packagedescription><![CDATA[Easy Selector for Twemojis.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Einfacher Auswähler für Twemojis.]]></packagedescription>
-		<version>1.1.2</version>
-		<date>2020-06-18</date>
+		<version>2.0.0</version>
+		<date>2021-07-10</date>
 	</packageinformation>
 
 	<authorinformation>
-		<author><![CDATA[Hanashi]]></author>
+		<author><![CDATA[Hanashi Development]]></author>
 		<authorurl><![CDATA[https://hanashi.dev/]]></authorurl>
 	</authorinformation>
 
 	<requiredpackages>
-		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.3.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
@@ -26,7 +26,7 @@
 		<!-- files -->
 		<instruction type="file" />
 	</instructions>
-	<instructions type="update" fromversion="1.1.1">
+	<instructions type="update" fromversion="1.1.2">
 		<instruction type="file" />
 	</instructions>
 </package>
