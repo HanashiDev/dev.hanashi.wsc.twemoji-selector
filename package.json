@@ -1,6 +1,9 @@
 {
     "name": "@hanashidev/dev.hanashi.wsc.twemoji-selector",
     "version": "2.0.0",
+    "files": [
+        "ts/**/*"
+    ],
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.6.1",
         "@typescript-eslint/parser": "^4.6.1",
