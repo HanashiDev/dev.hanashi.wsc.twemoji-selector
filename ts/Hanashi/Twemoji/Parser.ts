@@ -2,9 +2,9 @@ import TwemojiData, { ITwemojiEmo } from "./Data";
 import TwemojiUtil from "./Util";
 
 export class TwemojiParser {
-    private readonly emojiDataPath: string;
+    private readonly emojiDataPath: string = window.WCF_PATH + 'js/Hanashi/Twemoji/twemoji.json';
     private readonly emojiSize: number = 24;
-    private readonly selector: string | null = null;
+    private readonly selector: string | undefined = undefined;
     private readonly emojis: ITwemojiEmo;
 
     constructor(options: any = {}) {
@@ -13,8 +13,6 @@ export class TwemojiParser {
         }
         if (options.dataPath != null) {
             this.emojiDataPath = options.dataPath;
-        } else {
-            this.emojiDataPath = window.WCF_PATH + 'js/Hanashi/Twemoji/twemoji.json';
         }
         if (options.size != null) {
             this.emojiSize = options.size;
@@ -28,9 +26,10 @@ export class TwemojiParser {
         if (twemojiData.emo != null) {
             this.emojis = twemojiData.emo;
         }
+        this.parse();
     }
 
-    public parse(selector: string | null = null) {
+    public parse(selector: string | undefined = undefined) {
         if (this.emojis == null) {
             return;
         }
@@ -54,7 +53,7 @@ export class TwemojiParser {
             const icon = '<span class="haTwemojiIcon' + this.emojiSize + '" style="background-position: ' + x + 'px ' + y + 'px"></span>';
 
             nodeList.forEach(node => {
-                if (node.innerHTML.includes(native)) {
+                if (!node.innerHTML.includes(native)) {
                     return;
                 }
 

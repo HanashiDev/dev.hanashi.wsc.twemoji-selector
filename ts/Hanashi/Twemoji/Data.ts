@@ -9,6 +9,7 @@ export interface ITwemojiEmo {
         n: string;
         u: string;
         c: number[];
+        a?: string[];
     }
 }
 
