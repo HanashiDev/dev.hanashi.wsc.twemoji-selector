@@ -1,6 +1,23 @@
 #!/bin/bash
-rm -f files.tar
-7z a -ttar -mx=9 files.tar ./files/*
-rm -f dev.hanashi.wsc.twemoji-selector.tar
-7z a -ttar -mx=9 dev.hanashi.wsc.twemoji-selector.tar ./* -x!acptemplates -x!files -x!doc -x!README.adoc -x!templates -x!dev.hanashi.wsc.twemoji-selector.tar -x!.git -x!.gitignore -x!make.bat -x!make.sh
-rm -f files.tar
+PACKAGE_NAME=dev.hanashi.wsc.twemoji-selector
+PACKAGE_TYPES=(files)
+
+rm -rf files/js/*
+tsc --build
+
+for i in "${PACKAGE_TYPES[@]}"
+do
+    rm -rf ${i}.tar
+    7z a -ttar -mx=9 ${i}.tar ./${i}/*
+done
+
+rm -rf ${PACKAGE_NAME}.tar ${PACKAGE_NAME}.tar.gz
+7z a -ttar -mx=9 ${PACKAGE_NAME}.tar ./* -x!acptemplates -x!files -x!templates -x!${PACKAGE_NAME}.tar -x!${PACKAGE_NAME}.tar.gz -x!.git -x!.gitignore -x!make.sh -x!make.bat -x!.phpcs.xml -x!.github -x!ts -x!node_modules -x!package-lock.json -x!package.json -x!tsconfig.json
+7z a ${PACKAGE_NAME}.tar.gz ${PACKAGE_NAME}.tar
+rm -rf ${PACKAGE_NAME}.tar
+
+for i in "${PACKAGE_TYPES[@]}"
+do
+    rm -rf ${i}.tar
+done
+
