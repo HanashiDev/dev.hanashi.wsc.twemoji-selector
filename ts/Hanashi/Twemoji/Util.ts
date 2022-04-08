@@ -1,9 +1,9 @@
 export class TwemojiUtil {
-  public static getEmojiByUnifier(unifier: string) {
-    let native: string = "";
-    let unifiedSplitted = unifier.split("-");
+  public static getEmojiByUnifier(unifier: string): string {
+    let native = "";
+    const unifiedSplitted = unifier.split("-");
 
-    let unifiedInteger: number[] = [];
+    const unifiedInteger: number[] = [];
     for (let i = 0; i < unifiedSplitted.length; i++) {
       unifiedInteger.push(parseInt(unifiedSplitted[i], 16));
     }

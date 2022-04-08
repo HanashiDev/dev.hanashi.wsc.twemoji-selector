@@ -29,7 +29,7 @@ export class TwemojiParser {
     this.parse();
   }
 
-  public parse(selector: string | undefined = undefined) {
+  public parse(selector: string | undefined = undefined): void {
     if (this.emojis == null) {
       return;
     }
@@ -42,7 +42,7 @@ export class TwemojiParser {
     }
 
     const nodeList = document.querySelectorAll(selector);
-    for (let [_, emoji] of Object.entries(this.emojis)) {
+    for (const [, emoji] of Object.entries(this.emojis)) {
       const native = TwemojiUtil.getEmojiByUnifier(emoji.u);
       if (!native) {
         continue;
@@ -50,14 +50,7 @@ export class TwemojiParser {
 
       const x = emoji.c[0] * (this.emojiSize * -1);
       const y = emoji.c[1] * (this.emojiSize * -1);
-      const icon =
-        '<span class="haTwemojiIcon' +
-        this.emojiSize +
-        '" style="background-position: ' +
-        x +
-        "px " +
-        y +
-        'px"></span>';
+      const icon = `<span class="haTwemojiIcon${this.emojiSize}" style="background-position: ${x}px ${y}px"></span>`;
 
       nodeList.forEach((node) => {
         if (!node.innerHTML.includes(native)) {
