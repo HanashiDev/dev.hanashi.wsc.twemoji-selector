@@ -1,4 +1,3 @@
 *.tar
 *.tar.gz
 node_modules/
-files/js/*
