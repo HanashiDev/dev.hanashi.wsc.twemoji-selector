@@ -90,10 +90,9 @@ export class TwemojiSelector {
       this.navButtons[emojiCategory.icon].dataset.categoryId = emojiCategory.icon;
       this.navButtons[emojiCategory.icon].addEventListener("click", (ev) => this.clickNavButton(ev));
 
-      const iconSpan = document.createElement("span");
-      iconSpan.classList.add("icon");
-      iconSpan.classList.add("icon16");
-      iconSpan.classList.add("fa-" + emojiCategory.icon);
+      const iconSpan = document.createElement("fa-icon");
+      iconSpan.size = 16;
+      iconSpan.setIcon(emojiCategory.icon, true);
 
       this.navButtons[emojiCategory.icon].append(iconSpan);
 
