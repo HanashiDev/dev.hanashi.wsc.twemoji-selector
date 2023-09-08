@@ -255,7 +255,7 @@ export class TwemojiSelector {
       return;
     }
 
-    this.emojiSectionDiv.scrollTop = this.emojiSections[categoryID].offsetTop - this.emojiSectionDiv.offsetTop;
+    this.emojiSectionDiv.scrollTop = this.emojiSections[categoryID].offsetTop;
   }
 
   private changeSearchValue(e: Event): void {

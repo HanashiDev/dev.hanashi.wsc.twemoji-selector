@@ -202,7 +202,7 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             if (this.emojiSections[categoryID] == null || this.emojiSectionDiv == null) {
                 return;
             }
-            this.emojiSectionDiv.scrollTop = this.emojiSections[categoryID].offsetTop - this.emojiSectionDiv.offsetTop;
+            this.emojiSectionDiv.scrollTop = this.emojiSections[categoryID].offsetTop; // - this.emojiSectionDiv.offsetTop;
         }
         changeSearchValue(e) {
             const target = e.target;
