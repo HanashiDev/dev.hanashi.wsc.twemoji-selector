@@ -5,7 +5,7 @@ import TwemojiUtil from "./Util";
 export class TwemojiSelector {
   // options
   private readonly selector: string = "twemoji-selector";
-  private readonly emojiDataPath: string = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
+  private readonly emojiDataPath: string = (window as any).WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
   private readonly theme: string = "light";
   private readonly callback: ((data: any) => void) | undefined = undefined;
 
