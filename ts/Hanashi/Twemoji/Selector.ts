@@ -266,7 +266,7 @@ export class TwemojiSelector {
     }
     if (target.value) {
       this.isSearching = true;
-      this.generateSearchResult(target.value);
+      this.generateSearchResult(target.value as string);
     } else {
       this.isSearching = false;
       this.emojiSectionSearchDiv?.remove();
