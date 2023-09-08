@@ -14,7 +14,7 @@
         "typescript": "~5.2"
     },
     "dependencies": {
-        "@woltlab/wcf": "https://github.com/WoltLab/WCF.git#master"
+        "@woltlab/d.ts": "https://github.com/WoltLab/d.ts.git#4040fc083245edeb2f8832d4613b9e76aa9c17a5"
     },
     "scripts": {
         "test": "npx eslint \"ts/**\"",

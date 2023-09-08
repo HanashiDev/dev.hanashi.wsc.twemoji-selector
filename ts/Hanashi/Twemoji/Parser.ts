@@ -2,7 +2,7 @@ import TwemojiData, { ITwemojiEmo } from "./Data";
 import TwemojiUtil from "./Util";
 
 export class TwemojiParser {
-  private readonly emojiDataPath: string = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
+  private readonly emojiDataPath: string = (window as any).WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
   private readonly emojiSize: number = 24;
   private readonly selector: string | undefined = undefined;
   private readonly emojis: ITwemojiEmo;

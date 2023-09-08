@@ -5,10 +5,11 @@ define(["require", "exports", "tslib", "./Data", "./Util"], function (require, e
     Data_1 = tslib_1.__importDefault(Data_1);
     Util_1 = tslib_1.__importDefault(Util_1);
     class TwemojiParser {
+        emojiDataPath = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
+        emojiSize = 24;
+        selector = undefined;
+        emojis;
         constructor(options = {}) {
-            this.emojiDataPath = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
-            this.emojiSize = 24;
-            this.selector = undefined;
             if (options.selector != null) {
                 this.selector = options.selector;
             }

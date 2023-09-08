@@ -6,25 +6,25 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
     Data_1 = tslib_1.__importDefault(Data_1);
     Util_1 = tslib_1.__importDefault(Util_1);
     class TwemojiSelector {
+        // options
+        selector = "twemoji-selector";
+        emojiDataPath = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
+        theme = "light";
+        callback = undefined;
+        // cache variables
+        emojiCategories = [];
+        emojis = {};
+        navButtons = {};
+        isSearching = false;
+        emojiSectionDiv = undefined;
+        emojiSections = {};
+        emojiSectionSearchDiv = undefined;
+        firstEmoji = undefined;
+        // preview variables
+        twemojiPreview = undefined;
+        twemojiTitlePreview = undefined;
+        twemojiAliasPreview = undefined;
         constructor(options = {}) {
-            // options
-            this.selector = "twemoji-selector";
-            this.emojiDataPath = window.WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
-            this.theme = "light";
-            this.callback = undefined;
-            // cache variables
-            this.emojiCategories = [];
-            this.emojis = {};
-            this.navButtons = {};
-            this.isSearching = false;
-            this.emojiSectionDiv = undefined;
-            this.emojiSections = {};
-            this.emojiSectionSearchDiv = undefined;
-            this.firstEmoji = undefined;
-            // preview variables
-            this.twemojiPreview = undefined;
-            this.twemojiTitlePreview = undefined;
-            this.twemojiAliasPreview = undefined;
             if (options.selector != null) {
                 this.selector = options.selector;
             }
@@ -206,7 +206,6 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             this.emojiSectionDiv.scrollTop = this.emojiSections[categoryID].offsetTop - this.emojiSectionDiv.offsetTop;
         }
         changeSearchValue(e) {
-            var _a, _b;
             const target = e.target;
             if (target == null) {
                 return;
@@ -217,9 +216,9 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             }
             else {
                 this.isSearching = false;
-                (_a = this.emojiSectionSearchDiv) === null || _a === void 0 ? void 0 : _a.remove();
+                this.emojiSectionSearchDiv?.remove();
                 this.emojiSectionSearchDiv = undefined;
-                (_b = this.emojiSectionDiv) === null || _b === void 0 ? void 0 : _b.style.removeProperty("display");
+                this.emojiSectionDiv?.style.removeProperty("display");
             }
         }
         hoverTwemoji(e) {
@@ -300,9 +299,8 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
         //event methods end
         //search result
         generateSearchResult(value) {
-            var _a, _b, _c, _d;
             value = value.toLowerCase();
-            (_a = this.emojiSectionSearchDiv) === null || _a === void 0 ? void 0 : _a.remove();
+            this.emojiSectionSearchDiv?.remove();
             this.emojiSectionSearchDiv = document.createElement("div");
             this.emojiSectionSearchDiv.classList.add("emojiSection");
             const emojiSection = document.createElement("section");
@@ -335,8 +333,8 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             }
             emojiSection.appendChild(emojiList);
             this.emojiSectionSearchDiv.append(emojiSection);
-            (_b = this.emojiSectionDiv) === null || _b === void 0 ? void 0 : _b.style.setProperty("display", "none", "");
-            (_d = (_c = this.emojiSectionDiv) === null || _c === void 0 ? void 0 : _c.parentNode) === null || _d === void 0 ? void 0 : _d.insertBefore(this.emojiSectionSearchDiv, this.emojiSectionDiv.nextSibling);
+            this.emojiSectionDiv?.style.setProperty("display", "none", "");
+            this.emojiSectionDiv?.parentNode?.insertBefore(this.emojiSectionSearchDiv, this.emojiSectionDiv.nextSibling);
         }
     }
     exports.TwemojiSelector = TwemojiSelector;
