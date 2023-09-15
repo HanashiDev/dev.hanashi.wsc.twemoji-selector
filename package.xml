@@ -6,15 +6,15 @@
 		<packagename language="de">Twemoji Wähler</packagename>
 		<packagedescription>Easy Selector for Twemojis.</packagedescription>
 		<packagedescription language="de">Einfacher Auswähler für Twemojis.</packagedescription>
-		<version>2.1.0</version>
-		<date>2023-09-11</date>
+		<version>2.2.0</version>
+		<date>2023-09-15</date>
 	</packageinformation>
 	<authorinformation>
 		<author>Hanashi Development</author>
 		<authorurl>https://hanashi.dev/</authorurl>
 	</authorinformation>
 	<requiredpackages>
-		<requiredpackage minversion="5.5.14">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="6.0.0 Beta 4">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	<excludedpackages>
 		<excludedpackage version="7.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
@@ -22,7 +22,10 @@
 	<instructions type="install">
 		<instruction type="file"/>
 	</instructions>
-	<instructions type="update" fromversion="2.0.0">
+	<instructions type="update" fromversion="2.0.*">
+		<instruction type="file"/>
+	</instructions>
+	<instructions type="update" fromversion="2.1.*">
 		<instruction type="file"/>
 	</instructions>
 </package>
