@@ -1,6 +1,6 @@
 {
     "name": "@hanashidev/dev.hanashi.wsc.twemoji-selector",
-    "version": "2.0.0",
+    "version": "2.1.1",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.6.1",
         "@typescript-eslint/parser": "^4.6.1",
@@ -11,6 +11,6 @@
         "typescript": "^4.1.3"
     },
     "dependencies": {
-        "@woltlab/wcf": "https://github.com/WoltLab/WCF.git#master"
+        "@woltlab/wcf": "https://github.com/WoltLab/WCF.git#5.5"
     }
 }

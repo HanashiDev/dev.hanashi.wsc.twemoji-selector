@@ -5,8 +5,8 @@
 		<packagename language="de"><![CDATA[Twemoji Wähler]]></packagename>
 		<packagedescription><![CDATA[Easy Selector for Twemojis.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Einfacher Auswähler für Twemojis.]]></packagedescription>
-		<version>2.0.0</version>
-		<date>2021-07-12</date>
+		<version>2.1.1</version>
+		<date>2023-09-15</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -15,7 +15,7 @@
 	</authorinformation>
 
 	<requiredpackages>
-		<requiredpackage minversion="5.3.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.4.30">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
@@ -26,7 +26,10 @@
 		<!-- files -->
 		<instruction type="file" />
 	</instructions>
-	<instructions type="update" fromversion="1.1.2">
+	<instructions type="update" fromversion="2.0.0">
+		<instruction type="file" />
+	</instructions>
+	<instructions type="update" fromversion="2.1.0">
 		<instruction type="file" />
 	</instructions>
 </package>
