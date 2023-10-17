@@ -8,7 +8,7 @@ jobs:
     name: TS Prettier
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.0.0
+    - uses: actions/checkout@v4.1.1
     - name: Set up node.js
       uses: actions/setup-node@v3
       with:
