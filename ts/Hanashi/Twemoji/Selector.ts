@@ -63,6 +63,13 @@ export class TwemojiSelector {
     element.append(wrapper);
   }
 
+  private getBackgroundPosition(coordinates: number[]): string {
+    const GRID_SIZE = 63;
+    const x = (coordinates[0] / (GRID_SIZE - 1)) * 100;
+    const y = (coordinates[1] / (GRID_SIZE - 1)) * 100;
+    return `${x}% ${y}%`;
+  }
+
   // create methods
   private createWrapper(): HTMLDivElement {
     const wrapper = document.createElement("div");
@@ -170,9 +177,7 @@ export class TwemojiSelector {
 
         const emojiSpan = document.createElement("span");
         const coordinates = this.emojis[emojiName].c;
-        const x = coordinates[0] * -24;
-        const y = coordinates[1] * -24;
-        emojiSpan.style.backgroundPosition = `${x}px ${y}px`;
+        emojiSpan.style.backgroundPosition = this.getBackgroundPosition(coordinates);
 
         emojiButton.addEventListener("mouseover", (ev) => this.hoverTwemoji(ev));
         emojiButton.addEventListener("click", (ev) => this.clickTwemoji(ev));
@@ -221,9 +226,7 @@ export class TwemojiSelector {
     // show first emoji
     if (this.firstEmoji != null) {
       const coordinates = this.emojis[this.firstEmoji].c;
-      const x = coordinates[0] * -24;
-      const y = coordinates[1] * -24;
-      this.twemojiPreview.style.backgroundPosition = `${x}px ${y}px`;
+      this.twemojiPreview.style.backgroundPosition = this.getBackgroundPosition(coordinates);
 
       this.twemojiTitlePreview.innerText = this.emojis[this.firstEmoji].n;
       this.twemojiAliasPreview.innerText = ":" + this.firstEmoji + ":";
@@ -295,9 +298,7 @@ export class TwemojiSelector {
     }
 
     const coordinates = this.emojis[emojiName].c;
-    const x = coordinates[0] * -24;
-    const y = coordinates[1] * -24;
-    this.twemojiPreview.style.backgroundPosition = `${x}px ${y}px`;
+    this.twemojiPreview.style.backgroundPosition = this.getBackgroundPosition(coordinates);
 
     this.twemojiTitlePreview.innerText = this.emojis[emojiName].n;
     this.twemojiAliasPreview.innerText = ":" + emojiName + ":";
@@ -349,14 +350,20 @@ export class TwemojiSelector {
       return;
     }
 
-    const target: any = e.target;
+    const target = e.target as HTMLElement;
+    const scrollTop = target.scrollTop;
+
+    let activeKey: string | null = null;
+
     for (const key in this.emojiSections) {
       const section = this.emojiSections[key];
-      const rect = section.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      const isVisible = rect.y <= targetRect.top && rect.y > targetRect.top - rect.height;
+      if (section.offsetTop <= scrollTop + 10) {
+        activeKey = key;
+      }
+    }
 
-      if (isVisible) {
+    for (const key in this.navButtons) {
+      if (key === activeKey) {
         this.navButtons[key].classList.add("active");
       } else {
         this.navButtons[key].classList.remove("active");
@@ -399,9 +406,7 @@ export class TwemojiSelector {
 
         const emojiSpan = document.createElement("span");
         const coordinates = emojiData.c;
-        const x = coordinates[0] * -24;
-        const y = coordinates[1] * -24;
-        emojiSpan.style.backgroundPosition = `${x}px ${y}px`;
+        emojiSpan.style.backgroundPosition = this.getBackgroundPosition(coordinates);
 
         emojiButton.addEventListener("mouseover", (ev) => this.hoverTwemoji(ev));
         emojiButton.addEventListener("click", (ev) => this.clickTwemoji(ev));

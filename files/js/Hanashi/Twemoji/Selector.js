@@ -57,6 +57,12 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             wrapper.appendChild(this.createPreviewSection());
             element.append(wrapper);
         }
+        getBackgroundPosition(coordinates) {
+            const GRID_SIZE = 63;
+            const x = (coordinates[0] / (GRID_SIZE - 1)) * 100;
+            const y = (coordinates[1] / (GRID_SIZE - 1)) * 100;
+            return `${x}% ${y}%`;
+        }
         // create methods
         createWrapper() {
             const wrapper = document.createElement("div");
@@ -139,9 +145,7 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
                     emojiButton.dataset.emojiName = emojiName;
                     const emojiSpan = document.createElement("span");
                     const coordinates = this.emojis[emojiName].c;
-                    const x = coordinates[0] * -24;
-                    const y = coordinates[1] * -24;
-                    emojiSpan.style.backgroundPosition = `${x}px ${y}px`;
+                    emojiSpan.style.backgroundPosition = this.getBackgroundPosition(coordinates);
                     emojiButton.addEventListener("mouseover", (ev) => this.hoverTwemoji(ev));
                     emojiButton.addEventListener("click", (ev) => this.clickTwemoji(ev));
                     emojiButton.append(emojiSpan);
@@ -175,9 +179,7 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
             // show first emoji
             if (this.firstEmoji != null) {
                 const coordinates = this.emojis[this.firstEmoji].c;
-                const x = coordinates[0] * -24;
-                const y = coordinates[1] * -24;
-                this.twemojiPreview.style.backgroundPosition = `${x}px ${y}px`;
+                this.twemojiPreview.style.backgroundPosition = this.getBackgroundPosition(coordinates);
                 this.twemojiTitlePreview.innerText = this.emojis[this.firstEmoji].n;
                 this.twemojiAliasPreview.innerText = ":" + this.firstEmoji + ":";
             }
@@ -237,9 +239,7 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
                 return;
             }
             const coordinates = this.emojis[emojiName].c;
-            const x = coordinates[0] * -24;
-            const y = coordinates[1] * -24;
-            this.twemojiPreview.style.backgroundPosition = `${x}px ${y}px`;
+            this.twemojiPreview.style.backgroundPosition = this.getBackgroundPosition(coordinates);
             this.twemojiTitlePreview.innerText = this.emojis[emojiName].n;
             this.twemojiAliasPreview.innerText = ":" + emojiName + ":";
         }
@@ -282,12 +282,16 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
                 return;
             }
             const target = e.target;
+            const scrollTop = target.scrollTop;
+            let activeKey = null;
             for (const key in this.emojiSections) {
                 const section = this.emojiSections[key];
-                const rect = section.getBoundingClientRect();
-                const targetRect = target.getBoundingClientRect();
-                const isVisible = rect.y <= targetRect.top && rect.y > targetRect.top - rect.height;
-                if (isVisible) {
+                if (section.offsetTop <= scrollTop + 10) {
+                    activeKey = key;
+                }
+            }
+            for (const key in this.navButtons) {
+                if (key === activeKey) {
                     this.navButtons[key].classList.add("active");
                 }
                 else {
@@ -320,9 +324,7 @@ define(["require", "exports", "tslib", "WoltLabSuite/Core/Language", "./Data", "
                     emojiButton.dataset.emojiName = emoji;
                     const emojiSpan = document.createElement("span");
                     const coordinates = emojiData.c;
-                    const x = coordinates[0] * -24;
-                    const y = coordinates[1] * -24;
-                    emojiSpan.style.backgroundPosition = `${x}px ${y}px`;
+                    emojiSpan.style.backgroundPosition = this.getBackgroundPosition(coordinates);
                     emojiButton.addEventListener("mouseover", (ev) => this.hoverTwemoji(ev));
                     emojiButton.addEventListener("click", (ev) => this.clickTwemoji(ev));
                     emojiButton.append(emojiSpan);
