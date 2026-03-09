@@ -2,7 +2,6 @@ import TwemojiData, { ITwemojiEmo } from "./Data";
 import TwemojiUtil from "./Util";
 
 export class TwemojiParser {
-  private readonly emojiDataPath: string = (window as any).WCF_PATH + "js/Hanashi/Twemoji/twemoji.json";
   private readonly emojiSize: number = 24;
   private readonly selector: string | undefined = undefined;
   private readonly emojis: ITwemojiEmo;
@@ -10,9 +9,6 @@ export class TwemojiParser {
   constructor(options: any = {}) {
     if (options.selector != null) {
       this.selector = options.selector;
-    }
-    if (options.dataPath != null) {
-      this.emojiDataPath = options.dataPath;
     }
     if (options.size != null) {
       this.emojiSize = options.size;
