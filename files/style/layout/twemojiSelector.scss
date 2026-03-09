@@ -1,294 +1,187 @@
+$twemoji-grid-size: 63; // Anzahl Emojis pro Reihe im Sheet
+
 .twemojiSelector {
-    width: 302px;
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    background: #fff;
-    display: inline-block;
-    color: #000;
-    @media (prefers-color-scheme: dark) {
-        background: #222;
-        color: #FFF;
+  width: 302px;
+  border: 1px solid var(--wcfContentBorderInner);
+  border-radius: 5px;
+  background: var(--wcfContentBackground);
+  display: inline-block;
+  color: var(--wcfContentText);
+
+  .navSection {
+    border-bottom: 1px solid var(--wcfContentBorderInner);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 6px;
+
+      button {
+        display: block;
+        flex: 1 1 auto;
+        color: var(--wcfContentDimmedText);
+        text-align: center;
+        padding: 13px 4px;
+        overflow: hidden;
+        transition: color 0.2s ease-out;
+        margin: 0;
+        box-shadow: none;
+        background: none;
+        border: none;
+
+        &.active {
+          color: var(--wcfContentLink);
+          border-bottom: 3px solid var(--wcfContentLink);
+        }
+
+        &.active:hover {
+          color: var(--wcfContentLinkActive);
+          box-shadow: none;
+          background: var(--wcfButtonBackgroundActive);
+          border: none;
+          border-bottom: 3px solid var(--wcfContentLink);
+        }
+
+        span {
+          cursor: pointer !important;
+        }
+      }
     }
+  }
 
-    .navSection {
-        border-bottom: 1px solid #d9d9d9;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        @media (prefers-color-scheme: dark) {
-            border-color: #555453;
-        }
+  .searchSection {
+    margin-top: 6px;
+    padding: 0 6px;
+    position: relative;
 
-        nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 0 6px;
+    input[type="search"] {
+      width: 100%;
+      background-color: var(--wcfInputBackground);
+      color: var(--wcfInputText);
+      border-color: var(--wcfInputBorder);
 
-            button {
-                display: block;
-                flex: 1 1 auto;
-                color: #858585;
-                text-align: center;
-                padding: 13px 4px;
-                overflow: hidden;
-                transition: color 0.2s ease-out;
-                margin: 0;
-                box-shadow: none;
-                background: none;
-                border: none;
-
-                &.active {
-                    color: rgb(174, 101, 197);
-                    border-bottom: 3px solid rgb(174, 101, 197);
-                }
-
-                &.active:hover {
-                    color: #FFFFFF;
-                    box-shadow: none;
-                    background: #858585;
-                    border: none;
-                    border-bottom: 3px solid rgb(174, 101, 197);
-                }
-
-                span {
-                    cursor: pointer !important;
-                }
-            }
-        }
+      &:hover,
+      &:focus {
+        border-color: var(--wcfInputBorderActive);
+        color: var(--wcfInputTextActive);
+      }
     }
+  }
 
-    .searchSection {
-        margin-top: 6px;
-        padding: 0 6px;
-        position: relative;
+  .emojiSection {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 270px;
+    padding: 0 6px 6px 6px;
+    will-change: transform;
 
-        input[type=search] {
-            width: 100%;
+    section {
+      box-sizing: border-box;
+      line-height: 1.15;
+
+      .sectionTitle {
+        position: sticky;
+        top: 0;
+
+        span {
+          display: block;
+          width: 100%;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 5px 6px;
+          background-color: var(--wcfContentBackground);
+          color: var(--wcfContentText);
         }
-    }
+      }
 
-    .emojiSection {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        height: 270px;
-        padding: 0 6px 6px 6px;
-        will-change: transform;
+      .emojiList {
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
-        section {
-            box-sizing: border-box;
-            line-height: 1.15;
+        li {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: inline-block;
 
-            .sectionTitle {
-                position: sticky;
-                top: 0;
+          button {
+            background: none;
+            border: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 6px;
 
-                span {
-                    display: block;
-                    width: 100%;
-                    font-size: 14px;
-                    font-weight: bold;
-                    padding: 5px 6px;
-                    background-color: #FFF;
-                    color: #000;
-
-                    @media (prefers-color-scheme: dark) {
-                        background-color: #222;
-                        color: #FFF
-                    }
-                }
-            }
-            .emojiList {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-
-                li {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    display: inline-block;
-
-                    button {
-                        background: none;
-                        border: none;
-                        box-shadow: none;
-                        margin: 0;
-                        padding: 6px;
-
-                        span {
-                            width: 24px;
-                            height: 24px;
-                            display: inline-block;
-                            background-image: url('../images/twemoji/sheets/sheet-256.png');
-                            background-size: 5200% 5200%;
-                        }
-
-                        &:hover {
-                            background: #d9d9d9;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .previewSection {
-        border-top: 1px solid #d9d9d9;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        @media (prefers-color-scheme: dark) {
-            border-color: #555453;
-        }
-
-        .previewContent {
-            position: relative;
-            height: 70px;
-            padding: 15px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            span.twemojiPreview {
-                width: 24px;
-                height: 24px;
-                display: inline-block;
-                background-image: url('../images/twemoji/sheets/sheet-256.png');
-                background-size: 5200% 5200%;
-                flex: 0 0 auto;
+            span {
+              width: 24px;
+              height: 24px;
+              display: inline-block;
+              background-image: url("../images/twemoji/sheets/sheet-256.png");
+              background-size: ($twemoji-grid-size * 100%) ($twemoji-grid-size * 100%);
             }
 
-            div.previewDescription {
-                margin-left: 10px;
-
-                .twemojiTitle {
-                    font-weight: bold;
-                }
-                .twemojiAlias {
-                    font-size: 12px;
-                }
+            &:hover {
+              background: var(--wcfButtonBackgroundActive);
             }
+          }
         }
+      }
     }
+  }
 
-    &.dark {
-        background-color: #222;
-        color: #fff;
-        border-color: #555453;
+  .previewSection {
+    border-top: 1px solid var(--wcfContentBorderInner);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 
-        .navSection {
-            border-color: #555453;
+    .previewContent {
+      position: relative;
+      height: 70px;
+      padding: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      span.twemojiPreview {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-image: url("../images/twemoji/sheets/sheet-256.png");
+        background-size: ($twemoji-grid-size * 100%) ($twemoji-grid-size * 100%);
+        flex: 0 0 auto;
+      }
+
+      div.previewDescription {
+        margin-left: 10px;
+
+        .twemojiTitle {
+          font-weight: bold;
+          color: var(--wcfContentText);
         }
-
-        .emojiSection {
-            section {
-                .sectionTitle {
-                    span {
-                        color: #fff;
-                        background-color: #222;
-                    }
-                }
-            }
+        .twemojiAlias {
+          font-size: 12px;
+          color: var(--wcfContentDimmedText);
         }
-
-        .previewSection {
-            border-color: #555453;
-        }
+      }
     }
+  }
+}
 
-    &.light {
-        background-color: #fff;
-        color: #000;
-        border-color: #d9d9d9;
+$emoji-sizes: 16, 18, 22, 24, 32, 34, 64, 66;
 
-        .navSection {
-            border-color: #d9d9d9;
-        }
+[class^="haTwemojiIcon"] {
+    display: inline-block;
+    background-image: url('../images/twemoji/sheets/sheet-256.png');
+    background-size: ($twemoji-grid-size * 100%) ($twemoji-grid-size * 100%);
+    vertical-align: bottom;
+}
 
-        .emojiSection {
-            section {
-                .sectionTitle {
-                    span {
-                        color: #000;
-                        background-color: #fff;
-                    }
-                }
-            }
-        }
-
-        .previewSection {
-            border-color: #d9d9d9;
-        }
+@each $size in $emoji-sizes {
+    .haTwemojiIcon#{$size} {
+        width: ($twemoji-grid-size * 100%);
+        height: ($twemoji-grid-size * 100%);
     }
-}
-
-.haTwemojiIcon16 {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon18 {
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon22 {
-    width: 22px;
-    height: 22px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon24 {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon32 {
-    width: 32px;
-    height: 32px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon34 {
-    width: 34px;
-    height: 34px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon64 {
-    width: 64px;
-    height: 64px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
-}
-
-.haTwemojiIcon66 {
-    width: 66px;
-    height: 66px;
-    display: inline-block;
-    background-image: url('../images/twemoji/sheets/sheet-256.png');
-    background-size: 5200% 5200%;
-    vertical-align: bottom;
 }
