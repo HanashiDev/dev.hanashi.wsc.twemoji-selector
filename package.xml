@@ -6,8 +6,8 @@
 		<packagename language="de">Twemoji Wähler</packagename>
 		<packagedescription>Easy Selector for Twemojis.</packagedescription>
 		<packagedescription language="de">Einfacher Auswähler für Twemojis.</packagedescription>
-		<version>2.2.0</version>
-		<date>2023-09-15</date>
+		<version>2.3.0</version>
+		<date>2026-03-09</date>
 	</packageinformation>
 	<authorinformation>
 		<author>Hanashi Development</author>
@@ -26,6 +26,9 @@
 		<instruction type="file"/>
 	</instructions>
 	<instructions type="update" fromversion="2.1.*">
+		<instruction type="file"/>
+	</instructions>
+	<instructions type="update" fromversion="2.2.*">
 		<instruction type="file"/>
 	</instructions>
 </package>
